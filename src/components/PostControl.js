@@ -4,7 +4,6 @@ import PostList from './PostList';
 import PostDetail from './PostDetail';
 import EditPostForm from './EditPostForm';
 import { connect } from 'react-redux';
-import { act } from 'react-dom/test-utils'
 import PropTypes from 'prop-types';
 
 class PostControl extends React.Component{
@@ -40,7 +39,7 @@ class PostControl extends React.Component{
     const { dispatch } = this.props;
     const { id, username, title, date, upvotes, downvotes } = newPost;
     const action = {
-      type: 'ADD_ITEM',
+      type: 'ADD_POST',
       id: id,
       username: username,
       title: title,
@@ -69,10 +68,10 @@ class PostControl extends React.Component{
     const { dispatch } = this.props;
     const currentlySelectedPost = Object.value(this.props.masterPostList).filter(post => post.id === id)[0];
     const action = {
-      type: 'ADD_ITEM',
+      type: 'ADD_POST',
       id: id,
       username: currentlySelectedPost.username,
-      titke: currentlySelectedPost.title,
+      title: currentlySelectedPost.title,
       date: currentlySelectedPost.date,
       upvotes: currentlySelectedPost.upvotes + 1,
       downvotes: currentlySelectedPost.downvotes
@@ -85,10 +84,10 @@ class PostControl extends React.Component{
     const { dispatch } = this.props;
     const currentlySelectedPost = Object.value(this.props.masterPostList).filter(post => post.id === id)[0];
     const action = {
-      type: 'ADD_ITEM',
+      type: 'ADD_POST',
       id: id,
       username: currentlySelectedPost.username,
-      titke: currentlySelectedPost.title,
+      title: currentlySelectedPost.title,
       date: currentlySelectedPost.date,
       upvotes: currentlySelectedPost.upvotes,
       downvotes: currentlySelectedPost.downvotes - 1
@@ -100,6 +99,25 @@ class PostControl extends React.Component{
   handleChangingSelectedPost = (id) => {
     const selectedPost = this.props.masterPostList[id];
     this.setState({selectedPost: selectedPost});
+  }
+
+  handleEditingPostInList = (postToEdit) => {
+    const { dispatch } = this.props;
+    const { id, title, username, body, date } = postToEdit;
+    const action = {
+      type: 'ADD_ITEM',
+      id: id,
+      username: username, 
+      title: title,
+      body: body,
+      date: date
+    }
+    dispatch(action);
+    this.setState({
+      editing: false,
+      selectedItem: null
+    });
+    console.log(this.props.masterItemList)
   }
 
   render() {

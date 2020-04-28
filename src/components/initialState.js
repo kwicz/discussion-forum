@@ -4,7 +4,7 @@ const id1 = v4();
 const id2 = v4();
 
 export default {
-  masterTicketList: {
+  masterPostList: {
     [id1]: {
       username: 'Muffins',
       title: 'I miss friends.',

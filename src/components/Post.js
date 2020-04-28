@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
@@ -29,8 +27,8 @@ function Post(props){
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Card className={classes.root} onClick = {() => props.whenPostClicked(props.id)}>
-        <h3>{props.title}</h3>
+      <Card className={classes.root} >
+        <h3 onClick = {() => props.whenPostClicked(props.id)}>{props.title}</h3>
         <p>by {props.username}</p>
         <CardContent>
           <p>{props.body}</p>
