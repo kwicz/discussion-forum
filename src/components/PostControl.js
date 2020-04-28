@@ -112,7 +112,7 @@ class PostControl extends React.Component{
         onEditPost = {this.handleEditingPostInList} />
       buttonText = "return to posts";
     } else if (this.state.selectedPost != null) {
-      currentlyVisibleState = <PostDetail 
+      currentlyVisibleState = <PostDetails 
         post = {this.state.selectedPost} 
         onClickingDelete = {this.handleDeletingItem}
         onClickingEdit = {this.handleEditClick} />
