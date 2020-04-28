@@ -16,7 +16,7 @@ function ReusableForm(props) {
         <textarea
           name='body'
           placeholder='Body of your post.' />
-        <button type='submit'>{props.buttonText}</button>
+          <button className="formButton" type='submit'>{props.buttonText}</button>
       </form>
     </React.Fragment>
   );

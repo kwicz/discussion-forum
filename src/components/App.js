@@ -5,8 +5,8 @@ import '../components/App.css';
 function App() {
   return (
     <React.Fragment>
-    <PostControl />
-  </React.Fragment>
+      <PostControl />
+    </React.Fragment>
   );
 }
 

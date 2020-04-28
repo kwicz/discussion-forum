@@ -1,7 +1,7 @@
 import React from 'react';
 import NewPostForm from './NewPostForm';
 import PostList from './PostList';
-import PostDetails from './PostDetail';
+import PostDetail from './PostDetail';
 import EditPostForm from './EditPostForm';
 import { connect } from 'react-redux';
 import { act } from 'react-dom/test-utils'
@@ -112,9 +112,9 @@ class PostControl extends React.Component{
         onEditPost = {this.handleEditingPostInList} />
       buttonText = "return to posts";
     } else if (this.state.selectedPost != null) {
-      currentlyVisibleState = <PostDetails 
+      currentlyVisibleState = <PostDetail 
         post = {this.state.selectedPost} 
-        onClickingDelete = {this.handleDeletingItem}
+        onClickingDelete = {this.handleDeletingPost}
         onClickingEdit = {this.handleEditClick} />
       buttonText = "return to posts";
     } else if (this.props.formVisibleOnPage) {
@@ -127,7 +127,7 @@ class PostControl extends React.Component{
         whenPostClicked={this.handleChangingSelectedPost}
         whenUpvoteClicked={this.handleWhenUpvoteClicked}
         whenDownvoteClicked={this.handleWhenDownvoteClicked} />
-      buttonText = "+";
+      buttonText = "Add a post";
   }
 
   return (
