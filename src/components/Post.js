@@ -9,7 +9,9 @@ function Post(props){
         <p>by {props.username}</p>
         <p>{props.body}</p>
         <button onClick = {()=> props.whenUpvoteClicked(props.id)} type="submit">Upvote</button>
+        <p>Upvotes: {props.upvotes}</p>
         <button onClick = {()=> props.whenDownvoteClicked(props.id)} type="submit">Downvote</button>
+        <p>Downvotes: {props.downvotes}</p>
       </div>
     </React.Fragment>
   )
