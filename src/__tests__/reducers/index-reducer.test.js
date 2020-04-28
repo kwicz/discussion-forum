@@ -22,5 +22,27 @@ describe("rootReducer", () => {
       expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
     });
 
+    test('Check that initial state of postListReducer matches root reducer', () => {
+      const action = {
+        type: 'ADD_POST',
+        username: 'Muffins',
+        title: 'I miss friends.',
+        body: 'Will you all be my Reddit friends since real ones will give me the Rona?',
+        date: 'dummy-string',
+        upvotes: 0,
+        downvotes: 0,
+        id: 1 
+      }
+      store.dispatch(action);
+      expect(store.getState().masterPostList).toEqual(postListReducer(undefined, action));
+    });
     
+    test('Check that initial state of formVisibleReducer matches root reducer', () => {
+      const action = {
+        type: 'TOGGLE_FORM'
+      }
+      store.dispatch(action);
+      expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
+    });
+
 });
