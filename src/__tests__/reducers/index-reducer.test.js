@@ -13,5 +13,14 @@ describe("rootReducer", () => {
             formVisibleOnPage: false
         });
     });
+
+    test('Check that initial state of postListReducer matches root reducer', () => {
+      expect(store.getState().masterPostList).toEqual(postListReducer(undefined, { type: null }));
+    });
+    
+    test('Check that initial state of formVisibleReducer matches root reducer', () => {
+      expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, { type: null }));
+    });
+
     
 });
